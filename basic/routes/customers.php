@@ -79,4 +79,38 @@ $app->post('/api/customers/add',
   }
 });
 
+/* update customer */
+$app->put('/api/customers/update/{id}',
+  function (Request $request, Response $response) {
+  $id = $request->getAtrribute('id');
+  
+  $name = $request->getParam('name');
+  $phone = $request->getParam('phone');
+  $vio = $request->getParam('vio');
+  
+  $sql = "UPDATE customers SET
+            name  = :name
+            phone = :phone
+            vio   = :vio
+          WHERE id = $id"; /* 쿼리문*/
+  
+  try{
+    $db = new db(); /* db 클래스 선언 */
+    $db = $db -> connect(); /* db 연결 */
+    
+    $psmt = $db->prepare($sql); /* 프리페어드 쿼리준비함*/
+    /* http://php.net/manual/kr/pdo.prepare.php */
+    
+    $psmt->bindParam(':name', $name);
+    $psmt->bindParam(':phone', $phone);
+    $psmt->bindParam(':vio', $vio);
+    
+    $psmt -> execute(); /* 쿼리실행*/
+    echo '{"notice": {"text": "customer update"}';
+    
+  } catch(PDOException $e){ /* 인셉션처리*/
+    echo '{"error": {"text": '.$e->getMessage().'}'; /* 에러 json을 보냄*/
+  }
+});
+
 $app->run();
