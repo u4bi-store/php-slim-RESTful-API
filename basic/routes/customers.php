@@ -113,4 +113,25 @@ $app->put('/api/customers/update/{id}',
   }
 });
 
+/* delete customer */
+$app->get('/api/customers/delete/{id}',
+  function (Request $request, Response $response) {
+  $id = $request->getAtrribute('id');
+  
+  $sql = "DELETE FROM customers WHERE id = $id"; /* 쿼리문*/
+  
+  try{
+    $db = new db(); /* db 클래스 선언 */
+    $db = $db -> connect(); /* db 연결 */
+
+    $psmt = $db->prepare($sql); /* 쿼리준비*/
+    $psmt->execute(); /* 쿼리실행*/
+    $db = null;
+    echo '{"notice": {"text": "customer delete"}';
+
+  } catch(PDOException $e){ /* 인셉션처리*/
+    echo '{"error": {"text": '.$e->getMessage().'}'; /* 에러 json을 보냄*/
+  }
+});
+
 $app->run();
