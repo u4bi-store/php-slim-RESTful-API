@@ -56,7 +56,14 @@ $app->post('/api/board',
   $phone = $request->getParam('phone');
   $vio = $request->getParam('vio');
   
-  $sql = "INSERT INFO board(name, phone, vio) VALUES(:name, :phone, :vio)";
+  $sql = "INSERT INFO board(
+           name,
+           phone,
+           vio)
+         VALUES(
+           :name,
+           :phone,
+           :vio)";
   
   try{
     $db = new db();
