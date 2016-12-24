@@ -114,7 +114,7 @@ $app->put('/api/customers/update/{id}',
 });
 
 /* delete customer */
-$app->get('/api/customers/delete/{id}',
+$app->delete('/api/customers/delete/{id}',
   function (Request $request, Response $response) {
   $id = $request->getAtrribute('id');
   
