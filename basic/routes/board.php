@@ -19,7 +19,7 @@ $app->get('/api/board',
     
     $boards = $stmt->fetchAll(PDO::FETCH_OBJ);
     $db = null;
-    echo json_encode($boards);
+    echo json_encode($boards, JSON_UNESCAPED_UNICODE);
     
   } catch(PDOException $e){
     echo '{"error": {"text": '.$e->getMessage().'}';
@@ -41,7 +41,7 @@ $app->get('/api/board/{id}',
     
     $board = $stmt->fetchAll(PDO::FETCH_OBJ);
     $db = null;
-    echo json_encode($board);
+    echo json_encode($board, JSON_UNESCAPED_UNICODE);
     
   } catch(PDOException $e){
     echo '{"error": {"text": '.$e->getMessage().'}';
@@ -56,7 +56,7 @@ $app->post('/api/board',
   $phone = $request->getParam('phone');
   $vio = $request->getParam('vio');
   
-  $sql = "INSERT INFO board(
+  $sql = "INSERT INTO board(
            name,
            phone,
            vio)
@@ -119,7 +119,7 @@ $app->put('/api/board/{id}',
 
 
 /* destroy delete del 삭제*/
-$app->delete('/api/board/delete/{id}',
+$app->delete('/api/board/{id}',
   function (Request $request, Response $response) {
   $id = $request->getAtrribute('id');
   

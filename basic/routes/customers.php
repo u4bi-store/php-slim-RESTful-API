@@ -21,7 +21,7 @@ $app->get('/api/customers',
     /* http://php.net/manual/kr/pdostatement.fetchall.php */
     $db = null; /* null 정의*/
     
-    echo json_encode($customers); /* 배열로 담긴 객체를 json으로 인코딩하여 출력*/
+    echo json_encode($customers, JSON_UNESCAPED_UNICODE); /* 배열로 담긴 객체를 json으로 인코딩하여 출력*/
     
   } catch(PDOException $e){ /* 인셉션처리*/
     echo '{"error": {"text": '.$e->getMessage().'}'; /* 에러 json을 보냄*/
@@ -44,7 +44,7 @@ $app->get('/api/customers/{id}',
     /* http://php.net/manual/kr/pdostatement.fetchall.php */
     $db = null; /* null 정의*/
     
-    echo json_encode($customer); /* 배열로 담긴 객체를 json으로 인코딩하여 출력*/
+    echo json_encode($customer, JSON_UNESCAPED_UNICODE); /* 배열로 담긴 객체를 json으로 인코딩하여 출력*/
     
   } catch(PDOException $e){ /* 인셉션처리*/
     echo '{"error": {"text": '.$e->getMessage().'}'; /* 에러 json을 보냄*/
@@ -58,7 +58,7 @@ $app->post('/api/customers/add',
   $phone = $request->getParam('phone');
   $vio = $request->getParam('vio');
   
-  $sql = "INSERT INFO customers(name, phone, vio) VALUES(:name, :phone, :vio)"; /* 쿼리문*/
+  $sql = "INSERT INTO customers(name, phone, vio) VALUES(:name, :phone, :vio)"; /* 쿼리문*/
   
   try{
     $db = new db(); /* db 클래스 선언 */

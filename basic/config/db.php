@@ -2,7 +2,7 @@
   class db{
     private $db_host = 'localhost';
     private $db_user = 'root';
-    private $db_pass = '';
+    private $db_pass = 'rntnsdl';
     private $db_name = 'u4bi';
     
     /* 연결*/
