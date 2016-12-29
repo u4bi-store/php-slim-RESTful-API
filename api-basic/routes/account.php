@@ -2,14 +2,8 @@
 use \Psr\Http\Message\ServerRequestInterface as Request;
 use \Psr\Http\Message\ResponseInterface as Response;
 
-$app ->get('/api/board',
+$app ->get('/api/account',
   function(Request $request, Response $response){
-    echo 'get board test';
-  }
-);
-
-$app ->get('/api/check',
-  function(Request $request, Response $response){
-    echo 'get check test';
+    echo 'get account test';
   }
 );

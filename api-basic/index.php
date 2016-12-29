@@ -1,12 +1,11 @@
 <?php
-use \Psr\Http\Message\ServerRequestInterface as Request; /* 요청 리퀘스트 as 별명지어줌*/
-use \Psr\Http\Message\ResponseInterface as Response; /* 응답 리스폰스*/
+use \Psr\Http\Message\ServerRequestInterface as Request;
+use \Psr\Http\Message\ResponseInterface as Response;
 
-require '../vendor/autoload.php'; /* 인클루딩함 이 줄로 땡겨옴*/
-require './routes/board.php';
-require './routes/info.php';
+require '../vendor/autoload.php';
+$app = new \Slim\App;
 
-$app = new \Slim\App; /* 메인옵젝 app*/
+include_once 'routes/account.php';
+include_once 'routes/board.php';
 
-
-$app->run(); /* 메인*/
+$app->run();
