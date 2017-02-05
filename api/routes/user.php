@@ -78,3 +78,38 @@ $app -> post('/api/user/add', function(Request $req, Response $res){
         echo '{"error": {"text": '.$e->getMessage().'}';
     }
 });
+
+// update user
+$app -> put('/api/user/update/{id}', function(Request $req, Response $res){
+    
+    $id = $req->getAttribute('id');
+
+    $name = $req -> getParam('name');
+    $age = $req -> getParam('age');
+    $level = $req -> getParam('level');
+
+    $sql = "UPDATE slimapp SET
+            name = :name,
+            age = :age,
+            level = :level
+        WHERE id = $id";
+
+    try{
+        // get db obj
+        $db = new db();
+        $db = $db->connect();
+
+        $stmt = $db-> prepare($sql);
+
+        $stmt->bindParam(':name', $name);
+        $stmt->bindParam(':age', $age);
+        $stmt->bindParam(':level', $level);
+        
+        $stmt->execute();
+
+        echo '{"notice": {"text": "user update"}';
+        
+    } catch(PDOEception $e){
+        echo '{"error": {"text": '.$e->getMessage().'}';
+    }
+});
