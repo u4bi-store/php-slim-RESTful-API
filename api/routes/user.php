@@ -19,7 +19,7 @@ $app -> get('/api/users', function(Request $req, Response $res){
         
         $db = null;
 
-        echo json_encode($customers);   
+        echo json_encode($customers, JSON_UNESCAPED_UNICODE); 
 
     } catch(PDOEception $e){
         echo '{"error": {"text": '.$e->getMessage().'}';
