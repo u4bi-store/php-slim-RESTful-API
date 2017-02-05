@@ -139,3 +139,25 @@ $app -> put('/api/user-info/update/{id}', function(Request $req, Response $res){
         echo '{"error": {"text": '.$e->getMessage().'}';
     }
 });
+
+$app -> delete('/api/user-info/delete/{id}', function(Request $req, Response $res){
+    
+    $id = $req->getAttribute('id');
+
+    $sql = "DELETE FROM user_info WHERE id = $id";
+
+    try{
+        // get db obj
+        $db = new db();
+        $db = $db->connect();
+
+        $stmt = $db-> prepare($sql);
+        $stmt->execute();
+        $db = null;
+
+        echo '{"notice": {"text": "user-info delete"}';
+        
+    } catch(PDOEception $e){
+        echo '{"error": {"text": '.$e->getMessage().'}';
+    }
+});
