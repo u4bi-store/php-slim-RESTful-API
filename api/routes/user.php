@@ -113,3 +113,26 @@ $app -> put('/api/user/update/{id}', function(Request $req, Response $res){
         echo '{"error": {"text": '.$e->getMessage().'}';
     }
 });
+
+// delete user
+$app -> delete('/api/user/delete/{id}', function(Request $req, Response $res){
+    
+    $id = $req->getAttribute('id');
+
+    $sql = "DELETE FROM slimapp WHERE id = $id";
+
+    try{
+        // get db obj
+        $db = new db();
+        $db = $db->connect();
+
+        $stmt = $db-> prepare($sql);
+        $stmt->execute();
+        $db = null;
+
+        echo '{"notice": {"text": "user delete"}';
+        
+    } catch(PDOEception $e){
+        echo '{"error": {"text": '.$e->getMessage().'}';
+    }
+});
