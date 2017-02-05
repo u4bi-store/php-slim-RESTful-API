@@ -50,3 +50,31 @@ $app -> get('/api/user/{id}', function(Request $req, Response $res){
     }
 });
 
+// add user
+$app -> post('/api/user/add', function(Request $req, Response $res){
+    
+    $name = $req -> getParam('name');
+    $age = $req -> getParam('age');
+    $level = $req -> getParam('level');
+
+    $sql = "INSERT INTO slimapp(name, age, level) VALUES(:name, :age, :level)";
+
+    try{
+        // get db obj
+        $db = new db();
+        $db = $db->connect();
+
+        $stmt = $db-> prepare($sql);
+
+        $stmt->bindParam(':name', $name);
+        $stmt->bindParam(':age', $age);
+        $stmt->bindParam(':level', $level);
+        
+        $stmt->execute();
+
+        echo '{"notice": {"text": "user add"}';
+
+    } catch(PDOEception $e){
+        echo '{"error": {"text": '.$e->getMessage().'}';
+    }
+});
