@@ -25,3 +25,28 @@ $app -> get('/api/users', function(Request $req, Response $res){
         echo '{"error": {"text": '.$e->getMessage().'}';
     }
 });
+
+// get one user
+$app -> get('/api/user/{id}', function(Request $req, Response $res){
+    
+    $id = $req -> getAttribute('id');
+
+    $sql = "SELECT * FROM slimapp WHERE id= $id";
+
+    try{
+        // get db obj
+        $db = new db();
+        $db = $db->connect();
+
+        $stmt = $db->query($sql);
+        $customer = $stmt->fetchAll(PDO::FETCH_OBJ);
+        
+        $db = null;
+
+        echo json_encode($customer, JSON_UNESCAPED_UNICODE); 
+
+    } catch(PDOEception $e){
+        echo '{"error": {"text": '.$e->getMessage().'}';
+    }
+});
+

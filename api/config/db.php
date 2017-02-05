@@ -3,7 +3,7 @@
         // 속성
         private $dbhost = 'localhost';
         private $dbuser = 'root';
-        private $dbpass = 'root940617';
+        private $dbpass = '';
         private $dbname = 'u4bi';
 
         // 콘텐트
