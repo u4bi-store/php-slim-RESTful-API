@@ -13,5 +13,6 @@ require 'user/select.php';  // 유저 조회 : GET 방식 api/user/{id} @param
 require 'user/update.php';  // 유저 수정 : PUT 방식 api/user/{id} @param
 require 'user/delete.php';  // 유저 삭제 : DEL 방식 api/user/{id}
 
+require 'object/selects.php'; // 모두 조회 : GET 방식 api/users
 
 $app->run();
