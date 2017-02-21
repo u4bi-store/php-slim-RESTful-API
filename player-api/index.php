@@ -19,6 +19,7 @@ require 'clan/select.clan.php';        // 클랜 조회        : GET 방식 api/
 require 'clan/select-info.clan.php';   // 클랜 정보 조회    : GET 방식 api/clan/{id}/info
 require 'clan/select-member.clan.php'; // 클랜원 목록 조회   : GET 방식 api/clan/{id}/member
 require 'clan/update.clan.php';        // 클랜 수정        : PUT 방식 api/clan/{id} @param(name, nation_id)
+require 'clan/update-member.clan.php'; // 클랜원 추가       : PUT 방식 api/clan/{clan_id}/member @param(member_id)
 require 'clan/delete.clan.php';        // 클랜 삭제        : DEL 방식 api/clan/{id}
 require 'clan/delete-member.clan.php'; // 클랜원 삭제       : DEL 방식 api/clan/member/{id}
 
