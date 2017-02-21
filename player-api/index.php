@@ -15,5 +15,6 @@ require 'player/delete.player.php';  // 플레이어 삭제     : DEL 방식 api
 
 require 'clan/insert.clan.php';      // 클랜 생성        : POST방식 api/clan @param(name, nation_id)
 require 'clan/selects.clan.php';     // 클랜 모두 조회    : GET 방식 api/clans
+require 'clan/select.clan.php';      // 클랜 조회        : GET 방식 api/clan/{id}
 
 $app->run();
