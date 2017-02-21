@@ -24,7 +24,7 @@ require 'clan/delete.clan.php';        // 클랜 삭제        : DEL 방식 api/
 require 'clan/delete-member.clan.php'; // 클랜원 삭제       : DEL 방식 api/clan/member/{id}
 
 require 'nation/insert.nation.php';  // 국가 생성     : POST방식 api/nation @param(name, tax)
-// require 'nation/selects.nation.php'; // 국가 모두 조회 : GET 방식 api/nation
+require 'nation/selects.nation.php'; // 국가 모두 조회 : GET 방식 api/nation
 // require 'nation/select.nation.php';  // 국가 조회     : GET 방식 api/nation/{id}
 // require 'nation/update.nation.php';  // 국가 수정     : PUT 방식 api/nation/{id} @param(name, tax)
 // require 'nation/delete.nation.php';  // 국가 삭제     : DEL 방식 api/nation/{id}
