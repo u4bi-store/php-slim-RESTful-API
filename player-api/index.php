@@ -7,5 +7,6 @@ require 'database/dbcon.php';
 
 $app = new \Slim\App;
 
+require 'player/insert.player.php';  // 플레이어 생성 : POST방식 api/player
 
 $app->run();
