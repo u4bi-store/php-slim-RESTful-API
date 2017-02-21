@@ -27,6 +27,6 @@ require 'nation/insert.nation.php';  // 국가 생성     : POST방식 api/natio
 require 'nation/selects.nation.php'; // 국가 모두 조회 : GET 방식 api/nation
 require 'nation/select.nation.php';  // 국가 조회     : GET 방식 api/nation/{id}
 require 'nation/update.nation.php';  // 국가 수정     : PUT 방식 api/nation/{id} @param(name, tax)
-// require 'nation/delete.nation.php';  // 국가 삭제     : DEL 방식 api/nation/{id}
+require 'nation/delete.nation.php';  // 국가 삭제     : DEL 방식 api/nation/{id}
 
 $app->run();
