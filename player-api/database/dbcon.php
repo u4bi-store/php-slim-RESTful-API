@@ -2,7 +2,7 @@
     class db{
         private $dbhost = 'localhost';
         private $dbuser = 'root';
-        private $dbpass = '';
+        private $dbpass = 'root940617';
         private $dbname = 'u4bi';
 
         public function connect(){
