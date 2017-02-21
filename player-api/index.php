@@ -18,5 +18,6 @@ require 'clan/selects.clan.php';       // 클랜 모두 조회    : GET 방식 a
 require 'clan/select.clan.php';        // 클랜 조회        : GET 방식 api/clan/{id}
 require 'clan/select-info.clan.php';   // 클랜 정보 조회    : GET 방식 api/clan/{id}/info
 require 'clan/select-member.clan.php'; // 클랜원 목록 조회   : GET 방식 api/clan/{id}/member
+require 'clan/update.clan.php';        // 클랜 수정        : PUT 방식 api/clan/{id} @param(name, nation_id)
 
 $app->run();
