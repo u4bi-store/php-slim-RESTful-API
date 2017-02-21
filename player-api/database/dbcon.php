@@ -1,9 +1,9 @@
 <?php
     class db{
         private $dbhost = 'localhost';
-        private $dbuser = 'root';
+        private $dbuser = '';
         private $dbpass = '';
-        private $dbname = 'u4bi';
+        private $dbname = '';
 
         public function connect(){
                         
